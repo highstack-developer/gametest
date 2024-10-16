@@ -1,34 +1,40 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = 600; // Updated width
+canvas.height = 600; // Updated height
 
 // Load the custom snake icon
 const snakeIcon = new Image();
-snakeIcon.src = "Highstack_Needle.png"; // Make sure this path matches where the image is stored
+snakeIcon.src = "Highstack_0Needle.png"; // Ensure this matches the uploaded file name
 
 // Snake settings
-let snake = [{ x: 200, y: 200 }];
+let snake = [{ x: 300, y: 300 }]; // Adjusted initial position for new canvas size
 let direction = { x: 0, y: 0 };
-let food = { x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20 };
+let food = { x: Math.floor(Math.random() * 30) * 20, y: Math.floor(Math.random() * 30) * 20 }; // Updated food position calculation
 let score = 0;
 let level = 1;
-let speed = 200;  // Initial speed
-const levels = [200, 150, 100, 50, 25];  // Speed increases per level
+let speed = 200;  
+const levels = [200, 150, 100, 50, 25];
 
 // Draw snake and food
 function draw() {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Draw snake using the custom icon
+    // Draw snake using the custom icon rotated 90 degrees counterclockwise
     snake.forEach(segment => {
-        ctx.drawImage(snakeIcon, segment.x, segment.y, 20, 20);
+        ctx.save(); // Save the current state
+        ctx.translate(segment.x + 20 / 2, segment.y + 20 / 2); // Move to the center of the segment
+        ctx.rotate(-Math.PI / 2); // Rotate 90 degrees counterclockwise
+        ctx.drawImage(snakeIcon, -20 / 2, -20 / 2, 20, 20); // Draw the image centered
+        ctx.restore(); // Restore the original state
     });
     
-    // Draw food
-    ctx.fillStyle = "#000000";
+    // Draw food with a black stripe in the middle
+    ctx.fillStyle = "#FBC31A";
     ctx.fillRect(food.x, food.y, 20, 20);
+    ctx.fillStyle = "black"; // Set color for the stripe
+    ctx.fillRect(food.x, food.y + 8, 20, 4); // Draw the black stripe
 }
 
 // Move snake
@@ -58,7 +64,7 @@ function moveSnake() {
         if (score % 5 === 0) {
             levelUp();
         }
-        food = { x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20 };
+        food = { x: Math.floor(Math.random() * 30) * 20, y: Math.floor(Math.random() * 30) * 20 };
     } else {
         snake.pop(); // Remove tail if no food eaten
     }
@@ -76,7 +82,7 @@ function levelUp() {
 // Game over
 function gameOver() {
     alert("Game Over! Final Score: " + score);
-    snake = [{ x: 200, y: 200 }];
+    snake = [{ x: 300, y: 300 }]; // Reset to new position
     direction = { x: 0, y: 0 };
     score = 0;
     level = 1;
@@ -118,7 +124,11 @@ function gameLoop() {
     }, speed);
 }
 
-// Start the game
+// Start the game after the image is loaded
 snakeIcon.onload = () => {
     gameLoop();
+};
+
+snakeIcon.onerror = () => {
+    console.error("Failed to load the snake icon. Check the file name and path.");
 };
