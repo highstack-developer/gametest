@@ -5,7 +5,7 @@ canvas.height = 400;
 
 // Load the custom snake icon
 const snakeIcon = new Image();
-snakeIcon.src = "Highstack Needle.png"; // Make sure this path matches where the image is stored
+snakeIcon.src = "Highstack%20Needle.png"; // Make sure this path matches where the image is stored
 
 // Snake settings
 let snake = [{ x: 200, y: 200 }];
