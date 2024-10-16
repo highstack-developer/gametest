@@ -27,7 +27,7 @@ function draw() {
     });
     
     // Draw food
-    ctx.fillStyle = "#FBC31A";
+    ctx.fillStyle = "#000000";
     ctx.fillRect(food.x, food.y, 20, 20);
 }
 
