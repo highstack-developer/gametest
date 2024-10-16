@@ -3,6 +3,10 @@ const ctx = canvas.getContext("2d");
 canvas.width = 400;
 canvas.height = 400;
 
+// Load the custom snake icon
+const snakeIcon = new Image();
+snakeIcon.src = "Highstack Needle.png"; // Make sure this path matches where the image is stored
+
 // Snake settings
 let snake = [{ x: 200, y: 200 }];
 let direction = { x: 0, y: 0 };
@@ -17,10 +21,9 @@ function draw() {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Draw snake
-    ctx.fillStyle = "#000";
+    // Draw snake using the custom icon
     snake.forEach(segment => {
-        ctx.fillRect(segment.x, segment.y, 20, 20);
+        ctx.drawImage(snakeIcon, segment.x, segment.y, 20, 20);
     });
     
     // Draw food
@@ -115,4 +118,7 @@ function gameLoop() {
     }, speed);
 }
 
-gameLoop();
+// Start the game
+snakeIcon.onload = () => {
+    gameLoop();
+};
