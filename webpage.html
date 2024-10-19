@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tech Solutions Consulting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #000000;
+            color: #FBC31A;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: auto;
+        }
+
+        .section {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .case-study {
+            margin-bottom: 15px;
+        }
+
+        .case-study h3 {
+            color: #FBC31A;
+            margin-bottom: 5px;
+        }
+
+        .sectors, .services {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .sector, .service {
+            flex: 0 1 calc(33.333% - 20px);
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sector h4, .service h4 {
+            color: #000000;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .sector, .service {
+                flex: 0 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sector, .service {
+                flex: 0 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tech Solutions Consulting</h1>
+        <p>Bringing Innovative Technology to Your Business</p>
+    </header>
+
+    <div class="container">
+        <!-- Case Studies Section -->
+        <div class="section" id="case-studies">
+            <h2>Case Studies</h2>
+
+            <div class="case-study">
+                <h3>Case Study 1: Automating Business Operations</h3>
+                <p>We helped a retail company automate their operations by implementing a custom inventory management system that reduced manual work by 80%.</p>
+            </div>
+
+            <div class="case-study">
+                <h3>Case Study 2: Digital Transformation for a Finance Firm</h3>
+                <p>Our team guided a finance firm through a digital transformation, optimizing their IT infrastructure and improving data security compliance.</p>
+            </div>
+
+            <div class="case-study">
+                <h3>Case Study 3: Cloud Migration for Healthcare Provider</h3>
+                <p>We facilitated a seamless cloud migration for a healthcare provider, enhancing their data access and overall system performance.</p>
+            </div>
+        </div>
+
+        <!-- Sectors Section -->
+        <div class="section" id="sectors">
+            <h2>Sectors We Serve</h2>
+            <div class="sectors">
+                <div class="sector">
+                    <h4>Retail</h4>
+                    <p>Enhancing the customer experience through modern tech and automation solutions.</p>
+                </div>
+                <div class="sector">
+                    <h4>Healthcare</h4>
+                    <p>Optimizing data access and improving patient outcomes with advanced IT solutions.</p>
+                </div>
+                <div class="sector">
+                    <h4>Finance</h4>
+                    <p>Leading digital transformations to ensure data security and compliance in finance.</p>
+                </div>
+                <div class="sector">
+                    <h4>Education</h4>
+                    <p>Bringing e-learning and digital tools to improve educational outcomes.</p>
+                </div>
+                <div class="sector">
+                    <h4>Manufacturing</h4>
+                    <p>Automating production lines and improving logistics with smart technology.</p>
+                </div>
+                <div class="sector">
+                    <h4>Government</h4>
+                    <p>Helping governments adopt secure, efficient technology for better service delivery.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="section" id="services">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service">
+                    <h4>IT Consulting</h4>
+                    <p>Expert advice to align technology with your business goals.</p>
+                </div>
+                <div class="service">
+                    <h4>Cloud Solutions</h4>
+                    <p>Seamless migration to the cloud for improved scalability and performance.</p>
+                </div>
+                <div class="service">
+                    <h4>Cybersecurity</h4>
+                    <p>Protect your business with advanced security measures and risk management.</p>
+                </div>
+                <div class="service">
+                    <h4>Custom Software Development</h4>
+                    <p>Tailored software solutions to solve unique business challenges.</p>
+                </div>
+                <div class="service">
+                    <h4>Digital Transformation</h4>
+                    <p>Reinvent your business processes through digital technology.</p>
+                </div>
+                <div class="service">
+                    <h4>Data Analytics</h4>
+                    <p>Turn data into actionable insights to drive decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tech Solutions Consulting. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
