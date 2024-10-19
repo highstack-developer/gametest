@@ -137,6 +137,7 @@
             text-align: center;
             transition: box-shadow 0.3s;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .sector-item:hover {
@@ -146,6 +147,14 @@
         .sector-item h4 {
             color: #000000;
             margin-bottom: 15px;
+        }
+
+        .sector-item p {
+            display: none;
+        }
+
+        .sector-item.open p {
+            display: block;
         }
 
         /* Services Section */
@@ -184,6 +193,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .service-item:hover {
@@ -192,6 +202,14 @@
 
         .service-item h4 {
             color: #FBC31A;
+        }
+
+        .service-item p {
+            display: none;
+        }
+
+        .service-item.open p {
+            display: block;
         }
 
         .hidden {
@@ -223,19 +241,19 @@
             <div class="case-studies">
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>Automating Retail Operations</h3>
-                    <p>We implemented an AI-driven inventory system for a retail giant that cut operational costs by 70% and increased sales efficiency.</p>
+                    <p>We implemented an AI-driven inventory system for a retail giant, cutting operational costs by 70%. The system also improved sales efficiency by tracking stock levels in real-time, reducing errors and manual labor.</p>
                 </div>
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>Cloud Migration for Healthcare Provider</h3>
-                    <p>We helped a leading healthcare provider seamlessly migrate their services to the cloud, improving data access by 50%.</p>
+                    <p>We facilitated a smooth cloud migration for a healthcare provider, improving data access by 50%. This transition allowed secure, remote access to medical records, enhancing patient care and system uptime.</p>
                 </div>
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>Digital Transformation for Finance</h3>
-                    <p>Our consulting led to a full digital transformation for a finance firm, optimizing their digital products and security compliance.</p>
+                    <p>Our consulting services led to a comprehensive digital transformation at a finance firm. We revamped their digital products, improving security compliance and optimizing operational workflows across multiple departments.</p>
                 </div>
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>IoT for Manufacturing Efficiency</h3>
-                    <p>We introduced IoT solutions to a manufacturing company, reducing downtime and improving production efficiency by 25%.</p>
+                    <p>Introducing IoT solutions helped a manufacturing company reduce downtime and increase efficiency by 25%. Our technology provided real-time monitoring of machinery, enabling predictive maintenance and better production planning.</p>
                 </div>
             </div>
         </section>
@@ -244,25 +262,25 @@
         <section id="sectors">
             <h2>Sectors We Serve</h2>
             <div class="sector-list">
-                <div class="sector-item">
+                <div class="sector-item" onclick="toggleSector(this)">
                     <h4>Retail</h4>
-                    <p>Revolutionizing the retail experience with technology solutions that streamline operations.</p>
+                    <p>Revolutionizing the retail experience with technology solutions that streamline operations, from inventory management to customer engagement.</p>
                 </div>
-                <div class="sector-item">
+                <div class="sector-item" onclick="toggleSector(this)">
                     <h4>Healthcare</h4>
-                    <p>Enhancing healthcare outcomes with data-driven, secure IT systems.</p>
+                    <p>Enhancing healthcare outcomes with data-driven IT systems that ensure secure, compliant access to medical records and patient data.</p>
                 </div>
-                <div class="sector-item">
+                <div class="sector-item" onclick="toggleSector(this)">
                     <h4>Finance</h4>
-                    <p>Providing innovative solutions to optimize financial services and security.</p>
+                    <p>Providing cutting-edge solutions to optimize financial services, focusing on data security, compliance, and digital product innovation.</p>
                 </div>
-                <div class="sector-item">
+                <div class="sector-item" onclick="toggleSector(this)">
                     <h4>Education</h4>
-                    <p>Building digital ecosystems for improved educational delivery.</p>
+                    <p>Building digital ecosystems that enable educational institutions to deliver modern, flexible, and accessible learning experiences.</p>
                 </div>
-                <div class="sector-item">
+                <div class="sector-item" onclick="toggleSector(this)">
                     <h4>Manufacturing</h4>
-                    <p>Boosting manufacturing productivity through IoT and automation.</p>
+                    <p>Boosting manufacturing productivity with IoT and automation solutions, enabling real-time monitoring and reducing downtime.</p>
                 </div>
             </div>
         </section>
@@ -278,29 +296,25 @@
             </div>
 
             <div class="services-grid">
-                <div class="service-item" data-category="cloud">
-                    <h4>Cloud Solutions</h4>
-                    <p>Transform your business with scalable, secure cloud services.</p>
-                </div>
-                <div class="service-item" data-category="cybersecurity">
-                    <h4>Cybersecurity</h4>
-                    <p>Protect your business with advanced cybersecurity measures.</p>
-                </div>
-                <div class="service-item" data-category="software">
-                    <h4>Custom Software Development</h4>
-                    <p>Tailored software solutions to meet your unique business needs.</p>
-                </div>
-                <div class="service-item" data-category="cloud">
+                <div class="service-item" data-category="cloud" onclick="toggleService(this)">
                     <h4>Cloud Migration</h4>
-                    <p>Seamlessly move to the cloud with our expert migration services.</p>
+                    <p>We handle all aspects of your migration, from planning to execution, ensuring a smooth transition without disrupting your operations.</p>
                 </div>
-                <div class="service-item" data-category="cybersecurity">
+                <div class="service-item" data-category="cybersecurity" onclick="toggleService(this)">
                     <h4>Data Protection</h4>
-                    <p>Ensure your business is compliant and secure with data protection services.</p>
+                    <p>Keep your sensitive data secure with our cutting-edge cybersecurity services, designed to prevent breaches and ensure compliance.</p>
                 </div>
-                <div class="service-item" data-category="software">
+                <div class="service-item" data-category="software" onclick="toggleService(this)">
                     <h4>App Development</h4>
-                    <p>Build robust, user-friendly applications tailored to your business goals.</p>
+                    <p>From concept to deployment, we build mobile and web applications that are tailored to your business needs, ensuring user-friendly experiences.</p>
+                </div>
+                <div class="service-item" data-category="cloud" onclick="toggleService(this)">
+                    <h4>Cloud Infrastructure</h4>
+                    <p>We design, deploy, and manage scalable cloud infrastructures that grow with your business, ensuring high availability and performance.</p>
+                </div>
+                <div class="service-item" data-category="software" onclick="toggleService(this)">
+                    <h4>Custom Software Development</h4>
+                    <p>Our team creates bespoke software solutions to solve your unique business challenges, driving efficiency and innovation.</p>
                 </div>
             </div>
         </section>
@@ -318,6 +332,16 @@
 
         // Toggle case study description
         function toggleCaseStudy(element) {
+            element.classList.toggle('open');
+        }
+
+        // Toggle sector description
+        function toggleSector(element) {
+            element.classList.toggle('open');
+        }
+
+        // Toggle service description
+        function toggleService(element) {
             element.classList.toggle('open');
         }
 
