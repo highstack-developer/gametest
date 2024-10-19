@@ -6,90 +6,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tech Solutions Consulting</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            overflow-x: hidden;
         }
 
+        /* Header Section */
         header {
             background-color: #000000;
             color: #FBC31A;
-            padding: 20px;
+            padding: 40px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
+        /* Add a scroll down arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: #FBC31A;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Section layout */
         .container {
             width: 80%;
             margin: 20px auto;
-            overflow: auto;
         }
 
-        .section {
-            background-color: #fff;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        section {
+            padding: 60px 0;
         }
 
         h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
             color: #333;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: #FBC31A;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         .case-study {
-            margin-bottom: 15px;
+            background-color: #fff;
+            width: 48%;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study:hover {
+            transform: scale(1.05);
         }
 
         .case-study h3 {
             color: #FBC31A;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .sectors, .services {
+        .case-study p {
+            display: none;
+            transition: display 0.5s;
+        }
+
+        .case-study.open p {
+            display: block;
+        }
+
+        /* Sectors Section */
+        .sector-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sector-item {
+            background-color: #fff;
+            flex: 0 1 calc(30% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sector-item:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sector-item h4 {
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .service-filter {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .service-filter button {
+            background-color: #FBC31A;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .service-filter button.active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .services-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
 
-        .sector, .service {
-            flex: 0 1 calc(33.333% - 20px);
+        .service-item {
+            flex: 0 1 calc(30% - 20px);
+            background-color: #fff;
+            padding: 20px;
             margin-bottom: 20px;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 10px;
             text-align: center;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
-        .sector h4, .service h4 {
-            color: #000000;
+        .service-item:hover {
+            transform: translateY(-10px);
         }
 
+        .service-item h4 {
+            color: #FBC31A;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
         footer {
             background-color: #000000;
             color: #fff;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .sector, .service {
-                flex: 0 1 calc(50% - 20px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sector, .service {
-                flex: 0 1 100%;
-            }
         }
     </style>
 </head>
@@ -98,96 +212,131 @@
 
     <header>
         <h1>Tech Solutions Consulting</h1>
-        <p>Bringing Innovative Technology to Your Business</p>
+        <p>Delivering Cutting-Edge Tech Solutions for Businesses</p>
+        <div class="scroll-down" onclick="scrollToSection('case-studies')">&#8595;</div>
     </header>
 
     <div class="container">
         <!-- Case Studies Section -->
-        <div class="section" id="case-studies">
+        <section id="case-studies">
             <h2>Case Studies</h2>
-
-            <div class="case-study">
-                <h3>Case Study 1: Automating Business Operations</h3>
-                <p>We helped a retail company automate their operations by implementing a custom inventory management system that reduced manual work by 80%.</p>
+            <div class="case-studies">
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Automating Retail Operations</h3>
+                    <p>We implemented an AI-driven inventory system for a retail giant that cut operational costs by 70% and increased sales efficiency.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Cloud Migration for Healthcare Provider</h3>
+                    <p>We helped a leading healthcare provider seamlessly migrate their services to the cloud, improving data access by 50%.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Digital Transformation for Finance</h3>
+                    <p>Our consulting led to a full digital transformation for a finance firm, optimizing their digital products and security compliance.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>IoT for Manufacturing Efficiency</h3>
+                    <p>We introduced IoT solutions to a manufacturing company, reducing downtime and improving production efficiency by 25%.</p>
+                </div>
             </div>
-
-            <div class="case-study">
-                <h3>Case Study 2: Digital Transformation for a Finance Firm</h3>
-                <p>Our team guided a finance firm through a digital transformation, optimizing their IT infrastructure and improving data security compliance.</p>
-            </div>
-
-            <div class="case-study">
-                <h3>Case Study 3: Cloud Migration for Healthcare Provider</h3>
-                <p>We facilitated a seamless cloud migration for a healthcare provider, enhancing their data access and overall system performance.</p>
-            </div>
-        </div>
+        </section>
 
         <!-- Sectors Section -->
-        <div class="section" id="sectors">
+        <section id="sectors">
             <h2>Sectors We Serve</h2>
-            <div class="sectors">
-                <div class="sector">
+            <div class="sector-list">
+                <div class="sector-item">
                     <h4>Retail</h4>
-                    <p>Enhancing the customer experience through modern tech and automation solutions.</p>
+                    <p>Revolutionizing the retail experience with technology solutions that streamline operations.</p>
                 </div>
-                <div class="sector">
+                <div class="sector-item">
                     <h4>Healthcare</h4>
-                    <p>Optimizing data access and improving patient outcomes with advanced IT solutions.</p>
+                    <p>Enhancing healthcare outcomes with data-driven, secure IT systems.</p>
                 </div>
-                <div class="sector">
+                <div class="sector-item">
                     <h4>Finance</h4>
-                    <p>Leading digital transformations to ensure data security and compliance in finance.</p>
+                    <p>Providing innovative solutions to optimize financial services and security.</p>
                 </div>
-                <div class="sector">
+                <div class="sector-item">
                     <h4>Education</h4>
-                    <p>Bringing e-learning and digital tools to improve educational outcomes.</p>
+                    <p>Building digital ecosystems for improved educational delivery.</p>
                 </div>
-                <div class="sector">
+                <div class="sector-item">
                     <h4>Manufacturing</h4>
-                    <p>Automating production lines and improving logistics with smart technology.</p>
-                </div>
-                <div class="sector">
-                    <h4>Government</h4>
-                    <p>Helping governments adopt secure, efficient technology for better service delivery.</p>
+                    <p>Boosting manufacturing productivity through IoT and automation.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Services Section -->
-        <div class="section" id="services">
+        <section id="services">
             <h2>Our Services</h2>
-            <div class="services">
-                <div class="service">
-                    <h4>IT Consulting</h4>
-                    <p>Expert advice to align technology with your business goals.</p>
-                </div>
-                <div class="service">
+            <div class="service-filter">
+                <button class="active" onclick="filterServices('all')">All</button>
+                <button onclick="filterServices('cloud')">Cloud</button>
+                <button onclick="filterServices('cybersecurity')">Cybersecurity</button>
+                <button onclick="filterServices('software')">Software</button>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item" data-category="cloud">
                     <h4>Cloud Solutions</h4>
-                    <p>Seamless migration to the cloud for improved scalability and performance.</p>
+                    <p>Transform your business with scalable, secure cloud services.</p>
                 </div>
-                <div class="service">
+                <div class="service-item" data-category="cybersecurity">
                     <h4>Cybersecurity</h4>
-                    <p>Protect your business with advanced security measures and risk management.</p>
+                    <p>Protect your business with advanced cybersecurity measures.</p>
                 </div>
-                <div class="service">
+                <div class="service-item" data-category="software">
                     <h4>Custom Software Development</h4>
-                    <p>Tailored software solutions to solve unique business challenges.</p>
+                    <p>Tailored software solutions to meet your unique business needs.</p>
                 </div>
-                <div class="service">
-                    <h4>Digital Transformation</h4>
-                    <p>Reinvent your business processes through digital technology.</p>
+                <div class="service-item" data-category="cloud">
+                    <h4>Cloud Migration</h4>
+                    <p>Seamlessly move to the cloud with our expert migration services.</p>
                 </div>
-                <div class="service">
-                    <h4>Data Analytics</h4>
-                    <p>Turn data into actionable insights to drive decision-making.</p>
+                <div class="service-item" data-category="cybersecurity">
+                    <h4>Data Protection</h4>
+                    <p>Ensure your business is compliant and secure with data protection services.</p>
+                </div>
+                <div class="service-item" data-category="software">
+                    <h4>App Development</h4>
+                    <p>Build robust, user-friendly applications tailored to your business goals.</p>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <footer>
         <p>&copy; 2024 Tech Solutions Consulting. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Scroll to section function
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle case study description
+        function toggleCaseStudy(element) {
+            element.classList.toggle('open');
+        }
+
+        // Service filter function
+        function filterServices(category) {
+            const items = document.querySelectorAll('.service-item');
+            const buttons = document.querySelectorAll('.service-filter button');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`[onclick="filterServices('${category}')"]`).classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 
