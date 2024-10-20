@@ -19,6 +19,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -26,9 +27,9 @@
             color: #FBC31A;
         }
 
-        /* Full-Width Hero Section */
+        /* Header / Hero Section */
         header {
-            background-color: #000000;
+            background: linear-gradient(135deg, #000000, #001f3f);
             color: #FBC31A;
             height: 100vh;
             display: flex;
@@ -36,13 +37,15 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
             font-size: 4em;
             font-weight: 700;
             margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         header p {
@@ -50,6 +53,7 @@
             font-weight: 300;
             margin-bottom: 40px;
             color: #ccc;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header button {
@@ -68,9 +72,36 @@
             color: #000000;
         }
 
+        header::before {
+            content: "";
+            position: absolute;
+            background-image: url('https://source.unsplash.com/random/1920x1080');
+            background-size: cover;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         /* Section Styling */
         section {
             padding: 80px 0;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background-color: #001f3f;
+            color: white;
         }
 
         h2 {
@@ -95,49 +126,6 @@
             padding: 0 20px;
         }
 
-        /* Sector Section */
-        .sector-list {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-
-        .sector-item {
-            flex: 0 1 calc(33.333% - 20px);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .sector-item img {
-            width: 80px;
-            margin-bottom: 20px;
-        }
-
-        .sector-item:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .sector-item h4 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .sector-item p {
-            display: none;
-        }
-
-        .sector-item.open p {
-            display: block;
-            font-size: 1.1em;
-            color: #666;
-        }
-
         /* Services Section */
         .service-grid {
             display: flex;
@@ -155,6 +143,9 @@
             transition: transform 0.3s ease;
             cursor: pointer;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: fadeInUp 0.6s forwards;
         }
 
         .service-item:hover {
@@ -176,6 +167,56 @@
 
         .service-item.open p {
             display: block;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sector Section with Parallax Effect */
+        #sectors {
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            background-attachment: fixed;
+        }
+
+        .sector-item {
+            flex: 0 1 calc(33.333% - 20px);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+            color: #fff;
+        }
+
+        .sector-item img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .sector-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sector-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .sector-item p {
+            display: none;
+        }
+
+        .sector-item.open p {
+            display: block;
+            font-size: 1.1em;
         }
 
         /* Case Studies Section */
@@ -216,6 +257,24 @@
             color: #666;
         }
 
+        /* Testimonial Section */
+        .testimonial-slider {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial {
+            display: none;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
         /* Footer */
         footer {
             background-color: #000000;
@@ -252,24 +311,24 @@
     </header>
 
     <div class="container">
-        <!-- Sectors Section -->
+        <!-- Sectors Section with Parallax Effect -->
         <section id="sectors">
             <h2>Sectors We Serve</h2>
             <div class="sector-list">
                 <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/retail-logo.png" alt="Retail">
+                    <img src="https://example.com/retail-logo.png" alt="Retail Sector">
                     <h4>Retail</h4>
-                    <p>Streamlining retail operations with technology, enhancing customer experience and operational efficiency.</p>
+                    <p>Innovative e-commerce solutions and CRM integrations driving efficiency and growth.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/healthcare-logo.png" alt="Healthcare">
+                    <img src="https://example.com/healthcare-logo.png" alt="Healthcare Sector">
                     <h4>Healthcare</h4>
-                    <p>Transforming healthcare with secure, data-driven solutions that ensure patient privacy and compliance.</p>
+                    <p>HIPAA-compliant data systems ensuring secure storage and efficient patient management.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/finance-logo.png" alt="Finance">
+                    <img src="https://example.com/finance-logo.png" alt="Finance Sector">
                     <h4>Finance</h4>
-                    <p>Powering financial services with cutting-edge solutions that prioritize security and innovation.</p>
+                    <p>Scalable cloud infrastructures reducing costs and improving security for financial firms.</p>
                 </div>
             </div>
         </section>
@@ -279,16 +338,16 @@
             <h2>Our Services</h2>
             <div class="service-grid">
                 <div class="service-item" onclick="toggleService(this)">
-                    <h4>Cloud Migration</h4>
-                    <p>Seamlessly migrate your operations to the cloud, minimizing disruption and optimizing performance.</p>
+                    <h4>Custom Software Development</h4>
+                    <p>End-to-end software solutions tailored to fit your specific business needs.</p>
                 </div>
                 <div class="service-item" onclick="toggleService(this)">
-                    <h4>Data Protection</h4>
-                    <p>Secure your data with cutting-edge cybersecurity solutions, safeguarding against breaches and ensuring compliance.</p>
+                    <h4>Cloud Solutions</h4>
+                    <p>We help businesses migrate and manage their operations in the cloud with scalable solutions.</p>
                 </div>
                 <div class="service-item" onclick="toggleService(this)">
-                    <h4>App Development</h4>
-                    <p>Custom mobile and web app development tailored to your business needs, driving user engagement and satisfaction.</p>
+                    <h4>Data Analytics</h4>
+                    <p>Gain actionable insights from your data with our cutting-edge analytics tools.</p>
                 </div>
             </div>
         </section>
@@ -308,6 +367,25 @@
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>Cloud Migration for Finance</h3>
                     <p>Cut IT costs by 40% for a financial firm by migrating to a scalable, secure cloud infrastructure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>"Tech Solutions Consulting completely transformed our retail operations with their custom software solutions. We saw a 30% increase in revenue within the first quarter!"</p>
+                    <strong>- Retail Client</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Their cloud migration service helped us cut IT costs by 40%, and their attention to security was top-notch."</p>
+                    <strong>- Finance Client</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Thanks to their data analytics platform, we now have actionable insights that have greatly improved our patient care."</p>
+                    <strong>- Healthcare Client</strong>
                 </div>
             </div>
         </section>
@@ -339,6 +417,15 @@
         function toggleCaseStudy(element) {
             element.classList.toggle('open');
         }
+
+        // Testimonial slider (simplified)
+        setInterval(() => {
+            const testimonials = document.querySelectorAll('.testimonial');
+            let currentIndex = Array.from(testimonials).findIndex(t => t.classList.contains('active'));
+            testimonials[currentIndex].classList.remove('active');
+            const nextIndex = (currentIndex + 1) % testimonials.length;
+            testimonials[nextIndex].classList.add('active');
+        }, 5000);
     </script>
 </body>
 
