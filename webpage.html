@@ -328,6 +328,23 @@
         .cta:hover {
             background-color: #008cdd;
         }
+        .industry-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.industry-item:hover {
+    background-color: #e9e9e9;
+}
+
+.industry-details {
+    padding-top: 10px;
+    color: #555;
+}
     </style>
 </head>
 
@@ -342,17 +359,63 @@
 
     <!-- Industry Analysis Section -->
     <section id="industry-analysis">
-        <div class="container">
-            <h2>Industry <span>Analysis</span></h2>
-            <p>Understanding industry trends and challenges is key to delivering top-tier solutions. At Tech Solutions Consulting, we provide in-depth market research and sector-specific insights to help you stay ahead of the curve. Our industry analysis reports cover:</p>
-            <ul>
-                <li><strong>Financial Services:</strong> From blockchain to AI, the financial sector is rapidly evolving, and we help businesses adapt to these disruptive technologies.</li>
-                <li><strong>Healthcare:</strong> With a growing focus on digital health, telemedicine, and data security, we offer solutions that streamline operations while maintaining compliance.</li>
-                <li><strong>Retail:</strong> The future of retail is omnichannel, and our industry analysis explores customer behavior and digital transformation for maximum impact.</li>
-                <li><strong>Manufacturing:</strong> Discover the latest trends in Industry 4.0, IoT, and automation to enhance your production processes.</li>
-            </ul>
+    <div class="container">
+        <h2>Industry <span>Analysis</span></h2>
+
+        <!-- Financial Services -->
+        <div class="industry-item" onclick="toggleDetails('financial')">
+            <h3>Financial Services</h3>
+            <p>Click for insights...</p>
+            <div id="financial" class="industry-details" style="display: none;">
+                <p>From blockchain to AI, the financial sector is rapidly evolving, and we help businesses adapt to these disruptive technologies.</p>
+                <ul>
+                    <li>Key Trend 1: 70% of banks are investing in blockchain solutions.</li>
+                    <li>Key Trend 2: AI is expected to save the banking sector over $447 billion by 2023.</li>
+                </ul>
+            </div>
         </div>
-    </section>
+
+        <!-- Healthcare -->
+        <div class="industry-item" onclick="toggleDetails('healthcare')">
+            <h3>Healthcare</h3>
+            <p>Click for insights...</p>
+            <div id="healthcare" class="industry-details" style="display: none;">
+                <p>With a growing focus on digital health, telemedicine, and data security, we offer solutions that streamline operations while maintaining compliance.</p>
+                <ul>
+                    <li>Key Trend 1: Telehealth visits increased by 154% in 2020.</li>
+                    <li>Key Trend 2: 67% of healthcare organizations are investing in AI technology.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Retail -->
+        <div class="industry-item" onclick="toggleDetails('retail')">
+            <h3>Retail</h3>
+            <p>Click for insights...</p>
+            <div id="retail" class="industry-details" style="display: none;">
+                <p>The future of retail is omnichannel, and our industry analysis explores customer behavior and digital transformation for maximum impact.</p>
+                <ul>
+                    <li>Key Trend 1: E-commerce sales are projected to reach $6.4 trillion by 2024.</li>
+                    <li>Key Trend 2: 73% of consumers prefer shopping through multiple channels.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Manufacturing -->
+        <div class="industry-item" onclick="toggleDetails('manufacturing')">
+            <h3>Manufacturing</h3>
+            <p>Click for insights...</p>
+            <div id="manufacturing" class="industry-details" style="display: none;">
+                <p>Discover the latest trends in Industry 4.0, IoT, and automation to enhance your production processes.</p>
+                <ul>
+                    <li>Key Trend 1: 72% of manufacturers plan to invest in IoT by 2025.</li>
+                    <li>Key Trend 2: Automation is expected to boost productivity by 30% in the next decade.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- Our Process Section -->
     <section id="process">
@@ -468,6 +531,45 @@
         <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact Us</a>
     </footer>
 
+    <script>
+    function toggleDetails(industry) {
+        const details = document.getElementById(industry);
+        if (details.style.display === "none") {
+            details.style.display = "block";
+        } else {
+            details.style.display = "none";
+        }
+         // Smooth scroll to section
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle sector description
+        function toggleSector(element) {
+            element.classList.toggle('open');
+        }
+
+        // Toggle service description
+        function toggleService(element) {
+            element.classList.toggle('open');
+        }
+
+        // Toggle case study description
+        function toggleCaseStudy(element) {
+            element.classList.toggle('open');
+        }
+
+        // Testimonial slider (simplified)
+        setInterval(() => {
+            const testimonials = document.querySelectorAll('.testimonial');
+            let currentIndex = Array.from(testimonials).findIndex(t => t.classList.contains('active'));
+            testimonials[currentIndex].classList.remove('active');
+            const nextIndex = (currentIndex + 1) % testimonials.length;
+            testimonials[nextIndex].classList.add('active');
+        }, 5000);
+    }
+</script>
 </body>
+
 
 </html>
