@@ -347,13 +347,9 @@
     color: #555;
 }
 
-        .industry-details {
-    padding-top: 10px;
-    color: #555;
-}
-
 canvas {
     margin-top: 20px; /* Space above the chart */
+    max-width: 100%; /* Make the charts responsive */
 }
     </style>
 </head>
@@ -429,6 +425,7 @@ canvas {
         </div>
 
     </div>
+</section>
 </section>
 
     <!-- Our Process Section -->
@@ -609,7 +606,20 @@ canvas {
                         borderWidth: 1
                     }]
                 };
+                // Create Bar Chart
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: chartData,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
                 break;
+
             case 'healthcare':
                 ctx = document.getElementById('healthcareChart').getContext('2d');
                 chartData = {
@@ -617,52 +627,103 @@ canvas {
                     datasets: [{
                         label: 'Telehealth Visits (Millions)',
                         data: [5, 10, 25, 40],
-                        backgroundColor: 'rgba(0, 209, 178, 0.5)',
+                        fill: false,
                         borderColor: 'rgba(0, 209, 178, 1)',
-                        borderWidth: 1
+                        tension: 0.1
                     }]
                 };
+                // Create Line Chart
+                new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
                 break;
+
             case 'retail':
                 ctx = document.getElementById('retailChart').getContext('2d');
                 chartData = {
-                    labels: ['2019', '2020', '2021', '2022'],
+                    labels: ['Online', 'In-Store', 'Mobile', 'Social Media'],
                     datasets: [{
-                        label: 'E-commerce Sales ($ Trillion)',
-                        data: [3.5, 4.5, 5.0, 6.4],
-                        backgroundColor: 'rgba(255, 203, 38, 0.5)',
-                        borderColor: 'rgba(255, 203, 38, 1)',
+                        label: 'Sales Distribution (%)',
+                        data: [40, 35, 15, 10],
+                        backgroundColor: [
+                            'rgba(255, 203, 38, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 203, 38, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(255, 159, 64, 1)',
+                        ],
                         borderWidth: 1
                     }]
                 };
+                // Create Pie Chart
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (context.parsed !== null) {
+                                            label += ': ' + context.parsed + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
                 break;
+
             case 'manufacturing':
                 ctx = document.getElementById('manufacturingChart').getContext('2d');
                 chartData = {
-                    labels: ['2021', '2022', '2023', '2024'],
+                    labels: ['Cost Efficiency', 'Production Speed', 'Quality Control', 'Flexibility'],
                     datasets: [{
-                        label: 'Automation Impact on Productivity (%)',
-                        data: [20, 30, 50, 70],
+                        label: 'Performance Metrics',
+                        data: [90, 85, 80, 70],
                         backgroundColor: 'rgba(255, 82, 82, 0.5)',
                         borderColor: 'rgba(255, 82, 82, 1)',
                         borderWidth: 1
                     }]
                 };
+                // Create Radar Chart
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: chartData,
+                    options: {
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 100,
+                                ticks: {
+                                    stepSize: 10
+                                }
+                            }
+                        }
+                    }
+                });
                 break;
         }
-
-        // Create the chart
-        const chart = new Chart(ctx, {
-            type: 'bar', // You can change the type to 'line', 'pie', etc.
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
     }
 </script>
 </body>
