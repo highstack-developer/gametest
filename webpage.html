@@ -8,7 +8,6 @@
     <title>Tech Solutions Consulting</title>
 
     <style>
-        /* General Styling */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,6 @@
             color: #FBC31A;
         }
 
-        /* Header / Hero Section */
         header {
             background: linear-gradient(135deg, #000000, #001f3f);
             color: #FBC31A;
@@ -93,7 +91,6 @@
             }
         }
 
-        /* Section Styling */
         section {
             padding: 80px 0;
             position: relative;
@@ -126,7 +123,6 @@
             padding: 0 20px;
         }
 
-        /* Services Section */
         .service-grid {
             display: flex;
             justify-content: space-between;
@@ -176,7 +172,6 @@
             }
         }
 
-        /* Sector Section with Parallax Effect */
         #sectors {
             background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
             color: #ffffff;
@@ -219,7 +214,6 @@
             font-size: 1.1em;
         }
 
-        /* Case Studies Section */
         .case-studies {
             display: flex;
             justify-content: space-between;
@@ -257,7 +251,6 @@
             color: #666;
         }
 
-        /* Testimonial Section */
         .testimonial-slider {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -275,7 +268,6 @@
             animation: fadeIn 1s ease;
         }
 
-        /* Footer */
         footer {
             background-color: #000000;
             color: #FBC31A;
@@ -298,6 +290,49 @@
         footer a:hover {
             color: #fff;
         }
+
+        /* New Section Styling */
+        #process {
+            background-color: #333;
+            color: white;
+        }
+
+        #process .step {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 50px;
+        }
+
+        #process .step img {
+            max-width: 150px;
+            margin-right: 20px;
+        }
+
+        #process .step h3 {
+            color: #FBC31A;
+            margin-bottom: 10px;
+        }
+
+        #success-stories {
+            background-color: #222;
+            color: #fff;
+        }
+
+        #success-stories .story {
+            margin-bottom: 50px;
+        }
+
+        #industry-analysis {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        #industry-analysis .analysis-item {
+            padding: 30px;
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
@@ -311,43 +346,89 @@
     </header>
 
     <div class="container">
-        <!-- Sectors Section with Parallax Effect -->
-        <section id="sectors">
-            <h2>Sectors We Serve</h2>
-            <div class="sector-list">
-                <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/retail-logo.png" alt="Retail Sector">
-                    <h4>Retail</h4>
-                    <p>Innovative e-commerce solutions and CRM integrations driving efficiency and growth.</p>
+
+        <!-- Process Section -->
+        <section id="process">
+            <h2>Our Consulting Process</h2>
+            <div class="step">
+                <img src="https://example.com/discovery.png" alt="Discovery Phase">
+                <div>
+                    <h3>Step 1: Discovery</h3>
+                    <p>We begin with a deep dive into your business, identifying challenges and opportunities. Our team conducts thorough interviews, reviews your current systems, and lays the foundation for a tailored solution.</p>
                 </div>
-                <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/healthcare-logo.png" alt="Healthcare Sector">
-                    <h4>Healthcare</h4>
-                    <p>HIPAA-compliant data systems ensuring secure storage and efficient patient management.</p>
+            </div>
+            <div class="step">
+                <img src="https://example.com/strategy.png" alt="Strategy Phase">
+                <div>
+                    <h3>Step 2: Strategy & Design</h3>
+                    <p>Next, we create a detailed action plan with a clear roadmap. This includes defining your business objectives, selecting the best technologies, and outlining project timelines for implementation.</p>
                 </div>
-                <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/finance-logo.png" alt="Finance Sector">
-                    <h4>Finance</h4>
-                    <p>Scalable cloud infrastructures reducing costs and improving security for financial firms.</p>
+            </div>
+            <div class="step">
+                <img src="https://example.com/development.png" alt="Development Phase">
+                <div>
+                    <h3>Step 3: Development & Implementation</h3>
+                    <p>We develop robust solutions, rigorously tested to meet your unique needs. Our developers work side by side with your team to ensure seamless integration into your existing workflows.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="https://example.com/optimization.png" alt="Optimization Phase">
+                <div>
+                    <h3>Step 4: Optimization & Support</h3>
+                    <p>Post-launch, we offer ongoing support and optimization services. From refining user experience to scaling infrastructure, we ensure your solution continues to drive success long after implementation.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-item" onclick="toggleService(this)">
-                    <h4>Custom Software Development</h4>
-                    <p>End-to-end software solutions tailored to fit your specific business needs.</p>
+        <!-- Success Stories Section -->
+        <section id="success-stories">
+            <h2>Success Stories</h2>
+            <div class="story">
+                <h3>Digital Transformation for Retail Chain</h3>
+                <p>Our team re-engineered a national retail chain's entire e-commerce ecosystem, resulting in a 30% increase in online sales within six months. We delivered a seamless, omnichannel experience across all digital touchpoints.</p>
+            </div>
+            <div class="story">
+                <h3>AI-Powered Data Analysis for Healthcare</h3>
+                <p>In the healthcare sector, we developed an AI-powered data analysis tool that streamlined patient data management. This allowed a major hospital to reduce administrative tasks by 50%, enabling medical professionals to focus on patient care.</p>
+            </div>
+            <div class="story">
+                <h3>Cloud Migration for Global Finance Firm</h3>
+                <p>For a global finance firm, we facilitated a successful cloud migration, saving the client over $1.2 million in annual IT costs. The scalable infrastructure reduced downtime by 60%, ensuring uninterrupted service for their clients.</p>
+            </div>
+        </section>
+
+        <!-- Industry Analysis Section -->
+        <section id="industry-analysis">
+            <h2>Industry Analysis</h2>
+            <div class="analysis-item">
+                <h3>Retail: Navigating the Digital Landscape</h3>
+                <p>With the retail sector facing increasing digitalization, we provide insights into how businesses can leverage e-commerce, personalized marketing, and data-driven decision-making to stay competitive. Explore trends in mobile shopping, omnichannel strategies, and AI-driven customer experiences.</p>
+            </div>
+            <div class="analysis-item">
+                <h3>Healthcare: Data-Driven Transformation</h3>
+                <p>The healthcare industry is undergoing a data revolution. We analyze the impact of technologies such as blockchain for secure patient data, telemedicine for remote care, and AI for diagnostics. Discover how healthcare providers can optimize their services through tech innovation.</p>
+            </div>
+            <div class="analysis-item">
+                <h3>Finance: The Shift to Cloud-Based Operations</h3>
+                <p>The finance industry is embracing cloud technology to streamline operations and reduce costs. We explore the key drivers of this shift, including regulatory compliance, enhanced data security, and real-time analytics that enable smarter decision-making.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>"Tech Solutions Consulting completely transformed our retail operations with their custom software solutions. We saw a 30% increase in revenue within the first quarter!"</p>
+                    <strong>- Retail Client</strong>
                 </div>
-                <div class="service-item" onclick="toggleService(this)">
-                    <h4>Cloud Solutions</h4>
-                    <p>We help businesses migrate and manage their operations in the cloud with scalable solutions.</p>
+                <div class="testimonial">
+                    <p>"Their cloud migration service helped us cut IT costs by 40%, and their attention to security was top-notch."</p>
+                    <strong>- Finance Client</strong>
                 </div>
-                <div class="service-item" onclick="toggleService(this)">
-                    <h4>Data Analytics</h4>
-                    <p>Gain actionable insights from your data with our cutting-edge analytics tools.</p>
+                <div class="testimonial">
+                    <p>"Thanks to their data analytics platform, we now have actionable insights that have greatly improved our patient care."</p>
+                    <strong>- Healthcare Client</strong>
                 </div>
             </div>
         </section>
@@ -367,25 +448,6 @@
                 <div class="case-study" onclick="toggleCaseStudy(this)">
                     <h3>Cloud Migration for Finance</h3>
                     <p>Cut IT costs by 40% for a financial firm by migrating to a scalable, secure cloud infrastructure.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonial Section -->
-        <section id="testimonials">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial active">
-                    <p>"Tech Solutions Consulting completely transformed our retail operations with their custom software solutions. We saw a 30% increase in revenue within the first quarter!"</p>
-                    <strong>- Retail Client</strong>
-                </div>
-                <div class="testimonial">
-                    <p>"Their cloud migration service helped us cut IT costs by 40%, and their attention to security was top-notch."</p>
-                    <strong>- Finance Client</strong>
-                </div>
-                <div class="testimonial">
-                    <p>"Thanks to their data analytics platform, we now have actionable insights that have greatly improved our patient care."</p>
-                    <strong>- Healthcare Client</strong>
                 </div>
             </div>
         </section>
