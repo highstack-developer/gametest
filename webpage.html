@@ -85,42 +85,6 @@
             background-color: #FBC31A;
         }
 
-        /* Case Studies Section */
-        .case-studies {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .case-study {
-            background-color: #fff;
-            width: 48%;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .case-study:hover {
-            transform: scale(1.05);
-        }
-
-        .case-study h3 {
-            color: #FBC31A;
-            margin-bottom: 10px;
-        }
-
-        .case-study p {
-            display: none;
-            transition: display 0.5s;
-        }
-
-        .case-study.open p {
-            display: block;
-        }
-
         /* Sectors Section */
         .sector-list {
             display: flex;
@@ -142,6 +106,11 @@
 
         .sector-item:hover {
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sector-item img {
+            width: 60px;
+            margin-bottom: 10px;
         }
 
         .sector-item h4 {
@@ -212,8 +181,40 @@
             display: block;
         }
 
-        .hidden {
+        /* Case Studies Section */
+        .case-studies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .case-study {
+            background-color: #fff;
+            width: 48%;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study:hover {
+            transform: scale(1.05);
+        }
+
+        .case-study h3 {
+            color: #FBC31A;
+            margin-bottom: 10px;
+        }
+
+        .case-study p {
             display: none;
+            transition: display 0.5s;
+        }
+
+        .case-study.open p {
+            display: block;
         }
 
         /* Footer */
@@ -230,54 +231,37 @@
 
     <header>
         <h1>Tech Solutions Consulting</h1>
-        <div class="scroll-down" onclick="scrollToSection('case-studies')">&#8595;</div>
+        <p>Delivering Cutting-Edge Tech Solutions for Businesses</p>
+        <div class="scroll-down" onclick="scrollToSection('sectors')">&#8595;</div>
     </header>
 
     <div class="container">
-        <!-- Case Studies Section -->
-        <section id="case-studies">
-            <h2>Case Studies</h2>
-            <div class="case-studies">
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Automating Retail Operations</h3>
-                    <p>We implemented an AI-driven inventory system for a retail giant, cutting operational costs by 70%. The system also improved sales efficiency by tracking stock levels in real-time, reducing errors and manual labor.</p>
-                </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Cloud Migration for Healthcare Provider</h3>
-                    <p>We facilitated a smooth cloud migration for a healthcare provider, improving data access by 50%. This transition allowed secure, remote access to medical records, enhancing patient care and system uptime.</p>
-                </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Digital Transformation for Finance</h3>
-                    <p>Our consulting services led to a comprehensive digital transformation at a finance firm. We revamped their digital products, improving security compliance and optimizing operational workflows across multiple departments.</p>
-                </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>IoT for Manufacturing Efficiency</h3>
-                    <p>Introducing IoT solutions helped a manufacturing company reduce downtime and increase efficiency by 25%. Our technology provided real-time monitoring of machinery, enabling predictive maintenance and better production planning.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Sectors Section -->
         <section id="sectors">
             <h2>Sectors We Serve</h2>
             <div class="sector-list">
                 <div class="sector-item" onclick="toggleSector(this)">
+                    <img src="https://example.com/retail-logo.png" alt="Retail">
                     <h4>Retail</h4>
                     <p>Revolutionizing the retail experience with technology solutions that streamline operations, from inventory management to customer engagement.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
+                    <img src="https://example.com/healthcare-logo.png" alt="Healthcare">
                     <h4>Healthcare</h4>
                     <p>Enhancing healthcare outcomes with data-driven IT systems that ensure secure, compliant access to medical records and patient data.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
+                    <img src="https://example.com/finance-logo.png" alt="Finance">
                     <h4>Finance</h4>
                     <p>Providing cutting-edge solutions to optimize financial services, focusing on data security, compliance, and digital product innovation.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
+                    <img src="https://example.com/education-logo.png" alt="Education">
                     <h4>Education</h4>
                     <p>Building digital ecosystems that enable educational institutions to deliver modern, flexible, and accessible learning experiences.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
+                    <img src="https://example.com/manufacturing-logo.png" alt="Manufacturing">
                     <h4>Manufacturing</h4>
                     <p>Boosting manufacturing productivity with IoT and automation solutions, enabling real-time monitoring and reducing downtime.</p>
                 </div>
@@ -314,6 +298,29 @@
                 <div class="service-item" data-category="software" onclick="toggleService(this)">
                     <h4>Custom Software Development</h4>
                     <p>Our team creates bespoke software solutions to solve your unique business challenges, driving efficiency and innovation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section (moved to the bottom) -->
+        <section id="case-studies">
+            <h2>Case Studies</h2>
+            <div class="case-studies">
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Retail Digital Transformation</h3>
+                    <p>Our client in the retail sector increased revenue by 30% after we deployed a new e-commerce platform and integrated a CRM for better customer insights.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Healthcare Data Compliance</h3>
+                    <p>We helped a healthcare organization achieve HIPAA compliance by developing a secure system to store and access patient data efficiently.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Finance Cloud Migration</h3>
+                    <p>A major financial institution reduced IT costs by 40% through our custom cloud migration strategy, enhancing security and performance.</p>
+                </div>
+                <div class="case-study" onclick="toggleCaseStudy(this)">
+                    <h3>Education E-Learning Platform</h3>
+                    <p>We built an intuitive e-learning platform for a university, enabling remote learning for 5,000+ students during the pandemic.</p>
                 </div>
             </div>
         </section>
