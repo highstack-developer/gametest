@@ -346,13 +346,24 @@
     padding-top: 10px;
     color: #555;
 }
-
+.industry-content {
+    flex: 1; /* Allow content to take remaining space */
+    margin: 0 20px; /* Space between content and chart */
+}
 canvas {
     width: 100%; /* Make the canvas responsive */
     max-width: 300px; /* Set a maximum width */
     height: auto; /* Maintain aspect ratio */
     margin: 0 auto; /* Center the canvas */
 }
+.industry-item:nth-child(odd) {
+    flex-direction: row; /* Content on the left, chart on the right */
+}
+
+.industry-item:nth-child(even) {
+    flex-direction: row-reverse; /* Chart on the left, content on the right */
+}
+        
     </style>
 </head>
 
@@ -372,57 +383,65 @@ canvas {
 
         <!-- Financial Services -->
         <div class="industry-item" onclick="toggleDetails('financial')">
-            <h3>Financial Services</h3>
-            <p>Click for insights...</p>
-            <div id="financial" class="industry-details" style="display: none;">
-                <p>From blockchain to AI, the financial sector is rapidly evolving, and we help businesses adapt to these disruptive technologies.</p>
-                <ul>
-                    <li>Key Trend 1: 70% of banks are investing in blockchain solutions.</li>
-                    <li>Key Trend 2: AI is expected to save the banking sector over $447 billion by 2023.</li>
-                </ul>
-                <canvas id="financialChart" width="400" height="200"></canvas>
+            <div class="industry-content">
+                <h3>Financial Services</h3>
+                <p>Click for insights...</p>
+                <div id="financial" class="industry-details" style="display: none;">
+                    <p>From blockchain to AI, the financial sector is rapidly evolving, and we help businesses adapt to these disruptive technologies.</p>
+                    <ul>
+                        <li>Key Trend 1: 70% of banks are investing in blockchain solutions.</li>
+                        <li>Key Trend 2: AI is expected to save the banking sector over $447 billion by 2023.</li>
+                    </ul>
+                </div>
             </div>
+            <canvas id="financialChart" width="300" height="150"></canvas>
         </div>
 
         <!-- Healthcare -->
         <div class="industry-item" onclick="toggleDetails('healthcare')">
-            <h3>Healthcare</h3>
-            <p>Click for insights...</p>
-            <div id="healthcare" class="industry-details" style="display: none;">
-                <p>With a growing focus on digital health, telemedicine, and data security, we offer solutions that streamline operations while maintaining compliance.</p>
-                <ul>
-                    <li>Key Trend 1: Telehealth visits increased by 154% in 2020.</li>
-                    <li>Key Trend 2: 67% of healthcare organizations are investing in AI technology.</li>
-                </ul>
-                <canvas id="healthcareChart" width="400" height="200"></canvas>
+            <canvas id="healthcareChart" width="300" height="150"></canvas>
+            <div class="industry-content">
+                <h3>Healthcare</h3>
+                <p>Click for insights...</p>
+                <div id="healthcare" class="industry-details" style="display: none;">
+                    <p>With a growing focus on digital health, telemedicine, and data security, we offer solutions that streamline operations while maintaining compliance.</p>
+                    <ul>
+                        <li>Key Trend 1: Telehealth visits increased by 154% in 2020.</li>
+                        <li>Key Trend 2: 67% of healthcare organizations are investing in AI technology.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <!-- Retail -->
         <div class="industry-item" onclick="toggleDetails('retail')">
-            <h3>Retail</h3>
-            <p>Click for insights...</p>
-            <div id="retail" class="industry-details" style="display: none;">
-                <p>The future of retail is omnichannel, and our industry analysis explores customer behavior and digital transformation for maximum impact.</p>
-                <ul>
-                    <li>Key Trend 1: E-commerce sales are projected to reach $6.4 trillion by 2024.</li>
-                    <li>Key Trend 2: 73% of consumers prefer shopping through multiple channels.</li>
-                </ul>
-                <canvas id="retailChart" width="400" height="200"></canvas>
+            <div class="industry-content">
+                <h3>Retail</h3>
+                <p>Click for insights...</p>
+                <div id="retail" class="industry-details" style="display: none;">
+                    <p>The future of retail is omnichannel, and our industry analysis explores customer behavior and digital transformation for maximum impact.</p>
+                    <ul>
+                        <li>Key Trend 1: E-commerce sales are projected to reach $6.4 trillion by 2024.</li>
+                        <li>Key Trend 2: 73% of consumers prefer shopping through multiple channels.</li>
+                    </ul>
+                </div>
             </div>
+            <canvas id="retailChart" width="300" height="150"></canvas>
         </div>
 
         <!-- Manufacturing -->
         <div class="industry-item" onclick="toggleDetails('manufacturing')">
-            <h3>Manufacturing</h3>
-            <p>Click for insights...</p>
-            <div id="manufacturing" class="industry-details" style="display: none;">
-                <p>Discover the latest trends in Industry 4.0, IoT, and automation to enhance your production processes.</p>
-                <ul>
-                    <li>Key Trend 1: 72% of manufacturers plan to invest in IoT by 2025.</li>
-                    <li>Key Trend 2: Automation is expected to boost productivity by 30% in the next decade.</li>
-                </ul>
-                <canvas id="manufacturingChart" width="400" height="200"></canvas>
+            <canvas id="manufacturingChart" width="300" height="150"></canvas>
+            <div class="industry-content">
+                <h3>Manufacturing</h3>
+                <p>Click for insights...</p>
+                <div id="manufacturing" class="industry-details" style="display: none;">
+                    <p>Discover the latest trends in Industry 4.0, IoT, and automation to enhance your production processes.</p>
+                    <ul>
+                        <li>Key Trend 1: 72% of manufacturers plan to invest in IoT by 2025.</li>
+                        <li>Key Trend 2: Automation is expected to boost productivity by 30% in the next decade.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
