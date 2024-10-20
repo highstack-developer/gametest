@@ -8,114 +8,124 @@
     <title>Tech Solutions Consulting</title>
 
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* General Styling */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
-        /* Header Section */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FBC31A;
+        }
+
+        /* Full-Width Hero Section */
         header {
             background-color: #000000;
             color: #FBC31A;
-            padding: 40px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            position: relative;
+            padding: 0 20px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* Add a scroll down arrow */
-        .scroll-down {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            color: #FBC31A;
+        header p {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #ccc;
+        }
+
+        header button {
+            background-color: #FBC31A;
+            color: #000000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
             cursor: pointer;
-            animation: bounce 2s infinite;
+            transition: background-color 0.3s ease;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
+        header button:hover {
+            background-color: #fff;
+            color: #000000;
         }
 
-        /* Section layout */
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-
+        /* Section Styling */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 40px;
             font-size: 2.5em;
-            color: #333;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        h2::before {
+        h2::after {
             content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background-color: #FBC31A;
+            display: block;
+            margin: 10px auto;
         }
 
-        /* Sectors Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sector Section */
         .sector-list {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             flex-wrap: wrap;
+            text-align: center;
         }
 
         .sector-item {
+            flex: 0 1 calc(33.333% - 20px);
             background-color: #fff;
-            flex: 0 1 calc(30% - 20px);
-            margin-bottom: 20px;
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            transition: box-shadow 0.3s;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
-        .sector-item:hover {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
         }
 
         .sector-item img {
-            width: 60px;
-            margin-bottom: 10px;
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .sector-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .sector-item h4 {
-            color: #000000;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
         }
 
         .sector-item p {
@@ -124,57 +134,44 @@
 
         .sector-item.open p {
             display: block;
+            font-size: 1.1em;
+            color: #666;
         }
 
         /* Services Section */
-        .service-filter {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .service-filter button {
-            background-color: #FBC31A;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            color: #000;
-            font-weight: bold;
-        }
-
-        .service-filter button.active {
-            background-color: #000;
-            color: #fff;
-        }
-
-        .services-grid {
+        .service-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         .service-item {
-            flex: 0 1 calc(30% - 20px);
+            flex: 0 1 calc(33.333% - 20px);
             background-color: #fff;
             padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            text-align: center;
+            transition: transform 0.3s ease;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         .service-item:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .service-item h4 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
             color: #FBC31A;
         }
 
         .service-item p {
             display: none;
+            font-size: 1.1em;
+            color: #666;
         }
 
         .service-item.open p {
@@ -184,8 +181,8 @@
         /* Case Studies Section */
         .case-studies {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .case-study {
@@ -194,9 +191,9 @@
             padding: 20px;
             margin-bottom: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .case-study:hover {
@@ -204,35 +201,54 @@
         }
 
         .case-study h3 {
-            color: #FBC31A;
+            font-size: 1.8em;
             margin-bottom: 10px;
+            color: #FBC31A;
         }
 
         .case-study p {
             display: none;
-            transition: display 0.5s;
         }
 
         .case-study.open p {
             display: block;
+            font-size: 1.1em;
+            color: #666;
         }
 
         /* Footer */
         footer {
             background-color: #000000;
-            color: #fff;
-            padding: 20px;
+            color: #FBC31A;
+            padding: 40px 20px;
             text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        footer a {
+            color: #FBC31A;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Header / Hero Section -->
     <header>
         <h1>Tech Solutions Consulting</h1>
-        <p>Delivering Cutting-Edge Tech Solutions for Businesses</p>
-        <div class="scroll-down" onclick="scrollToSection('sectors')">&#8595;</div>
+        <p>Bringing Cutting-Edge Tech to Businesses Globally</p>
+        <button onclick="scrollToSection('services')">Our Services</button>
     </header>
 
     <div class="container">
@@ -243,27 +259,17 @@
                 <div class="sector-item" onclick="toggleSector(this)">
                     <img src="https://example.com/retail-logo.png" alt="Retail">
                     <h4>Retail</h4>
-                    <p>Revolutionizing the retail experience with technology solutions that streamline operations, from inventory management to customer engagement.</p>
+                    <p>Streamlining retail operations with technology, enhancing customer experience and operational efficiency.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
                     <img src="https://example.com/healthcare-logo.png" alt="Healthcare">
                     <h4>Healthcare</h4>
-                    <p>Enhancing healthcare outcomes with data-driven IT systems that ensure secure, compliant access to medical records and patient data.</p>
+                    <p>Transforming healthcare with secure, data-driven solutions that ensure patient privacy and compliance.</p>
                 </div>
                 <div class="sector-item" onclick="toggleSector(this)">
                     <img src="https://example.com/finance-logo.png" alt="Finance">
                     <h4>Finance</h4>
-                    <p>Providing cutting-edge solutions to optimize financial services, focusing on data security, compliance, and digital product innovation.</p>
-                </div>
-                <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/education-logo.png" alt="Education">
-                    <h4>Education</h4>
-                    <p>Building digital ecosystems that enable educational institutions to deliver modern, flexible, and accessible learning experiences.</p>
-                </div>
-                <div class="sector-item" onclick="toggleSector(this)">
-                    <img src="https://example.com/manufacturing-logo.png" alt="Manufacturing">
-                    <h4>Manufacturing</h4>
-                    <p>Boosting manufacturing productivity with IoT and automation solutions, enabling real-time monitoring and reducing downtime.</p>
+                    <p>Powering financial services with cutting-edge solutions that prioritize security and innovation.</p>
                 </div>
             </div>
         </section>
@@ -271,74 +277,52 @@
         <!-- Services Section -->
         <section id="services">
             <h2>Our Services</h2>
-            <div class="service-filter">
-                <button class="active" onclick="filterServices('all')">All</button>
-                <button onclick="filterServices('cloud')">Cloud</button>
-                <button onclick="filterServices('cybersecurity')">Cybersecurity</button>
-                <button onclick="filterServices('software')">Software</button>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-item" data-category="cloud" onclick="toggleService(this)">
+            <div class="service-grid">
+                <div class="service-item" onclick="toggleService(this)">
                     <h4>Cloud Migration</h4>
-                    <p>We handle all aspects of your migration, from planning to execution, ensuring a smooth transition without disrupting your operations.</p>
+                    <p>Seamlessly migrate your operations to the cloud, minimizing disruption and optimizing performance.</p>
                 </div>
-                <div class="service-item" data-category="cybersecurity" onclick="toggleService(this)">
+                <div class="service-item" onclick="toggleService(this)">
                     <h4>Data Protection</h4>
-                    <p>Keep your sensitive data secure with our cutting-edge cybersecurity services, designed to prevent breaches and ensure compliance.</p>
+                    <p>Secure your data with cutting-edge cybersecurity solutions, safeguarding against breaches and ensuring compliance.</p>
                 </div>
-                <div class="service-item" data-category="software" onclick="toggleService(this)">
+                <div class="service-item" onclick="toggleService(this)">
                     <h4>App Development</h4>
-                    <p>From concept to deployment, we build mobile and web applications that are tailored to your business needs, ensuring user-friendly experiences.</p>
-                </div>
-                <div class="service-item" data-category="cloud" onclick="toggleService(this)">
-                    <h4>Cloud Infrastructure</h4>
-                    <p>We design, deploy, and manage scalable cloud infrastructures that grow with your business, ensuring high availability and performance.</p>
-                </div>
-                <div class="service-item" data-category="software" onclick="toggleService(this)">
-                    <h4>Custom Software Development</h4>
-                    <p>Our team creates bespoke software solutions to solve your unique business challenges, driving efficiency and innovation.</p>
+                    <p>Custom mobile and web app development tailored to your business needs, driving user engagement and satisfaction.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Case Studies Section (moved to the bottom) -->
+        <!-- Case Studies Section -->
         <section id="case-studies">
             <h2>Case Studies</h2>
             <div class="case-studies">
                 <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Retail Digital Transformation</h3>
-                    <p>Our client in the retail sector increased revenue by 30% after we deployed a new e-commerce platform and integrated a CRM for better customer insights.</p>
+                    <h3>Retail Transformation</h3>
+                    <p>Boosted revenue by 30% with a custom e-commerce platform and CRM integration for our retail client.</p>
                 </div>
                 <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Healthcare Data Compliance</h3>
-                    <p>We helped a healthcare organization achieve HIPAA compliance by developing a secure system to store and access patient data efficiently.</p>
+                    <h3>Healthcare Data Security</h3>
+                    <p>Enabled HIPAA compliance for a healthcare provider by implementing a secure data storage system.</p>
                 </div>
                 <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Finance Cloud Migration</h3>
-                    <p>A major financial institution reduced IT costs by 40% through our custom cloud migration strategy, enhancing security and performance.</p>
-                </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Education E-Learning Platform</h3>
-                    <p>We built an intuitive e-learning platform for a university, enabling remote learning for 5,000+ students during the pandemic.</p>
+                    <h3>Cloud Migration for Finance</h3>
+                    <p>Cut IT costs by 40% for a financial firm by migrating to a scalable, secure cloud infrastructure.</p>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Tech Solutions Consulting. All rights reserved.</p>
+        <p>&copy; 2024 Tech Solutions Consulting. All Rights Reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact Us</a>
     </footer>
 
     <script>
-        // Scroll to section function
+        // Smooth scroll to section
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Toggle case study description
-        function toggleCaseStudy(element) {
-            element.classList.toggle('open');
         }
 
         // Toggle sector description
@@ -351,23 +335,11 @@
             element.classList.toggle('open');
         }
 
-        // Service filter function
-        function filterServices(category) {
-            const items = document.querySelectorAll('.service-item');
-            const buttons = document.querySelectorAll('.service-filter button');
-            buttons.forEach(button => button.classList.remove('active'));
-            document.querySelector(`[onclick="filterServices('${category}')"]`).classList.add('active');
-
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        // Toggle case study description
+        function toggleCaseStudy(element) {
+            element.classList.toggle('open');
         }
     </script>
-
 </body>
 
 </html>
