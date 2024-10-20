@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tech Solutions Consulting</title>
-
     <style>
         * {
             margin: 0;
@@ -16,14 +14,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fff;
             color: #333;
             scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
         a {
             text-decoration: none;
-            color: #FBC31A;
+            color: #008cdd;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #00d1b2;
         }
 
         header {
@@ -40,14 +44,14 @@
         }
 
         header h1 {
-            font-size: 4em;
+            font-size: 4.5em;
             font-weight: 700;
             margin-bottom: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         header p {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 300;
             margin-bottom: 40px;
             color: #ccc;
@@ -86,33 +90,36 @@
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 20px;
             position: relative;
+            transition: padding 0.3s ease-in-out;
         }
 
-        section:nth-child(even) {
-            background-color: #001f3f;
-            color: white;
-        }
-
-        h2 {
+        section h2 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 40px;
+            font-weight: 600;
             position: relative;
+            color: #333;
+        }
+
+        section h2 span {
+            color: #00d1b2;
         }
 
         h2::after {
             content: '';
-            width: 60px;
+            width: 70px;
             height: 4px;
-            background-color: #FBC31A;
+            background-color: #008cdd;
             display: block;
             margin: 10px auto;
         }
@@ -127,17 +134,16 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            margin-top: 40px;
+            gap: 30px;
         }
 
         .service-item {
             flex: 0 1 calc(33.333% - 20px);
-            background-color: #fff;
-            padding: 20px;
+            background-color: #f9f9f9;
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            transition: all 0.3s ease-in-out;
             margin-bottom: 20px;
             opacity: 0;
             transform: translateY(100px);
@@ -146,23 +152,18 @@
 
         .service-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .service-item h4 {
             margin-bottom: 15px;
             font-size: 1.8em;
-            color: #FBC31A;
+            color: #00d1b2;
         }
 
         .service-item p {
-            display: none;
             font-size: 1.1em;
-            color: #666;
-        }
-
-        .service-item.open p {
-            display: block;
+            color: #555;
         }
 
         @keyframes fadeInUp {
@@ -173,16 +174,15 @@
         }
 
         #sectors {
-            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
+            background: linear-gradient(135deg, #1f3f5b, #00d1b2);
             color: #ffffff;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            background-attachment: fixed;
+            padding: 80px 0;
         }
 
         .sector-item {
             flex: 0 1 calc(33.333% - 20px);
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
             transition: box-shadow 0.3s ease;
@@ -190,40 +190,38 @@
         }
 
         .sector-item img {
-            width: 80px;
+            width: 100px;
             margin-bottom: 20px;
+        }
+
+        .sector-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            color: #fff;
+        }
+
+        .sector-item p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .sector-item.open p {
+            display: block;
         }
 
         .sector-item:hover {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .sector-item h4 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .sector-item p {
-            display: none;
-        }
-
-        .sector-item.open p {
-            display: block;
-            font-size: 1.1em;
-        }
-
-        .case-studies {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        #case-studies {
+            background-color: #fafafa;
         }
 
         .case-study {
             background-color: #fff;
             width: 48%;
-            padding: 20px;
+            padding: 30px;
             margin-bottom: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -238,40 +236,39 @@
         .case-study h3 {
             font-size: 1.8em;
             margin-bottom: 10px;
-            color: #FBC31A;
+            color: #00d1b2;
         }
 
         .case-study p {
-            display: none;
-        }
-
-        .case-study.open p {
-            display: block;
-            font-size: 1.1em;
-            color: #666;
-        }
-
-        .testimonial-slider {
-            background-color: #f8f8f8;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .testimonial {
-            display: none;
             font-size: 1.2em;
             color: #555;
         }
 
-        .testimonial.active {
+        #testimonials {
+            background: linear-gradient(135deg, #00d1b2, #008cdd);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #f5f5f5;
+        }
+
+        .testimonial strong {
             display: block;
-            animation: fadeIn 1s ease;
+            margin-top: 20px;
+            font-size: 1.2em;
         }
 
         footer {
-            background-color: #000000;
+            background-color: #001f3f;
             color: #FBC31A;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -291,204 +288,119 @@
             color: #fff;
         }
 
-        /* New Section Styling */
-        #process {
-            background-color: #333;
+        /* Additional Color Highlights */
+        .highlight {
+            color: #008cdd;
+        }
+
+        .cta {
+            background-color: #00d1b2;
             color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            margin-top: 40px;
         }
 
-        #process .step {
-            display: flex;
-            flex-direction: row;
-            margin-bottom: 50px;
-        }
-
-        #process .step img {
-            max-width: 150px;
-            margin-right: 20px;
-        }
-
-        #process .step h3 {
-            color: #FBC31A;
-            margin-bottom: 10px;
-        }
-
-        #success-stories {
-            background-color: #222;
-            color: #fff;
-        }
-
-        #success-stories .story {
-            margin-bottom: 50px;
-        }
-
-        #industry-analysis {
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        #industry-analysis .analysis-item {
-            padding: 30px;
-            background-color: #fff;
-            margin-bottom: 30px;
-            border-radius: 8px;
+        .cta:hover {
+            background-color: #008cdd;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header / Hero Section -->
+    <!-- Header Section -->
     <header>
-        <h1>Tech Solutions Consulting</h1>
-        <p>Bringing Cutting-Edge Tech to Businesses Globally</p>
-        <button onclick="scrollToSection('services')">Our Services</button>
+        <h1>Transforming Businesses with <span class="highlight">Tech Solutions</span></h1>
+        <p>Partner with us to bring cutting-edge technology into your operations and drive unprecedented growth.</p>
+        <button>Get Started</button>
     </header>
 
+    <!-- Main Content Section -->
     <div class="container">
-
-        <!-- Process Section -->
-        <section id="process">
-            <h2>Our Consulting Process</h2>
-            <div class="step">
-                <img src="https://example.com/discovery.png" alt="Discovery Phase">
-                <div>
-                    <h3>Step 1: Discovery</h3>
-                    <p>We begin with a deep dive into your business, identifying challenges and opportunities. Our team conducts thorough interviews, reviews your current systems, and lays the foundation for a tailored solution.</p>
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our <span>Services</span></h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h4>Digital Transformation</h4>
+                    <p>We help businesses modernize their processes by integrating digital technologies at all levels.</p>
                 </div>
-            </div>
-            <div class="step">
-                <img src="https://example.com/strategy.png" alt="Strategy Phase">
-                <div>
-                    <h3>Step 2: Strategy & Design</h3>
-                    <p>Next, we create a detailed action plan with a clear roadmap. This includes defining your business objectives, selecting the best technologies, and outlining project timelines for implementation.</p>
+                <div class="service-item">
+                    <h4>Cloud Solutions</h4>
+                    <p>Leverage cloud infrastructure to increase scalability, reduce costs, and ensure 24/7 availability.</p>
                 </div>
-            </div>
-            <div class="step">
-                <img src="https://example.com/development.png" alt="Development Phase">
-                <div>
-                    <h3>Step 3: Development & Implementation</h3>
-                    <p>We develop robust solutions, rigorously tested to meet your unique needs. Our developers work side by side with your team to ensure seamless integration into your existing workflows.</p>
-                </div>
-            </div>
-            <div class="step">
-                <img src="https://example.com/optimization.png" alt="Optimization Phase">
-                <div>
-                    <h3>Step 4: Optimization & Support</h3>
-                    <p>Post-launch, we offer ongoing support and optimization services. From refining user experience to scaling infrastructure, we ensure your solution continues to drive success long after implementation.</p>
+                <div class="service-item">
+                    <h4>AI & Machine Learning</h4>
+                    <p>Implement AI-driven solutions to unlock new opportunities in data analytics and automation.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Success Stories Section -->
-        <section id="success-stories">
-            <h2>Success Stories</h2>
-            <div class="story">
-                <h3>Digital Transformation for Retail Chain</h3>
-                <p>Our team re-engineered a national retail chain's entire e-commerce ecosystem, resulting in a 30% increase in online sales within six months. We delivered a seamless, omnichannel experience across all digital touchpoints.</p>
-            </div>
-            <div class="story">
-                <h3>AI-Powered Data Analysis for Healthcare</h3>
-                <p>In the healthcare sector, we developed an AI-powered data analysis tool that streamlined patient data management. This allowed a major hospital to reduce administrative tasks by 50%, enabling medical professionals to focus on patient care.</p>
-            </div>
-            <div class="story">
-                <h3>Cloud Migration for Global Finance Firm</h3>
-                <p>For a global finance firm, we facilitated a successful cloud migration, saving the client over $1.2 million in annual IT costs. The scalable infrastructure reduced downtime by 60%, ensuring uninterrupted service for their clients.</p>
-            </div>
-        </section>
-
-        <!-- Industry Analysis Section -->
-        <section id="industry-analysis">
-            <h2>Industry Analysis</h2>
-            <div class="analysis-item">
-                <h3>Retail: Navigating the Digital Landscape</h3>
-                <p>With the retail sector facing increasing digitalization, we provide insights into how businesses can leverage e-commerce, personalized marketing, and data-driven decision-making to stay competitive. Explore trends in mobile shopping, omnichannel strategies, and AI-driven customer experiences.</p>
-            </div>
-            <div class="analysis-item">
-                <h3>Healthcare: Data-Driven Transformation</h3>
-                <p>The healthcare industry is undergoing a data revolution. We analyze the impact of technologies such as blockchain for secure patient data, telemedicine for remote care, and AI for diagnostics. Discover how healthcare providers can optimize their services through tech innovation.</p>
-            </div>
-            <div class="analysis-item">
-                <h3>Finance: The Shift to Cloud-Based Operations</h3>
-                <p>The finance industry is embracing cloud technology to streamline operations and reduce costs. We explore the key drivers of this shift, including regulatory compliance, enhanced data security, and real-time analytics that enable smarter decision-making.</p>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial active">
-                    <p>"Tech Solutions Consulting completely transformed our retail operations with their custom software solutions. We saw a 30% increase in revenue within the first quarter!"</p>
-                    <strong>- Retail Client</strong>
+        <!-- Sectors Section -->
+        <section id="sectors">
+            <h2>Key <span>Sectors</span> We Serve</h2>
+            <div class="service-grid">
+                <div class="sector-item">
+                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Finance Logo">
+                    <h4>Finance</h4>
+                    <p>Our solutions empower financial institutions to streamline operations, reduce risk, and enhance customer experiences.</p>
                 </div>
-                <div class="testimonial">
-                    <p>"Their cloud migration service helped us cut IT costs by 40%, and their attention to security was top-notch."</p>
-                    <strong>- Finance Client</strong>
+                <div class="sector-item">
+                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Healthcare Logo">
+                    <h4>Healthcare</h4>
+                    <p>We offer digital solutions that improve patient care, enhance administrative efficiency, and ensure compliance with regulations.</p>
                 </div>
-                <div class="testimonial">
-                    <p>"Thanks to their data analytics platform, we now have actionable insights that have greatly improved our patient care."</p>
-                    <strong>- Healthcare Client</strong>
+                <div class="sector-item">
+                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Retail Logo">
+                    <h4>Retail</h4>
+                    <p>From e-commerce platforms to in-store analytics, we help retailers enhance customer engagement and boost sales.</p>
+                </div>
+                <div class="sector-item">
+                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Manufacturing Logo">
+                    <h4>Manufacturing</h4>
+                    <p>We provide solutions that optimize production processes, improve supply chain visibility, and reduce operational costs.</p>
+                </div>
+                <div class="sector-item">
+                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Education Logo">
+                    <h4>Education</h4>
+                    <p>Our tools for digital learning, student management, and data analytics empower educational institutions to thrive in the digital age.</p>
                 </div>
             </div>
         </section>
 
         <!-- Case Studies Section -->
         <section id="case-studies">
-            <h2>Case Studies</h2>
-            <div class="case-studies">
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Retail Transformation</h3>
-                    <p>Boosted revenue by 30% with a custom e-commerce platform and CRM integration for our retail client.</p>
+            <h2>Recent <span>Case Studies</span></h2>
+            <div class="service-grid">
+                <div class="case-study">
+                    <h3>Financial Institution Transformation</h3>
+                    <p>We helped a leading bank transition to cloud services, resulting in a 20% reduction in IT costs and faster customer service delivery.</p>
                 </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Healthcare Data Security</h3>
-                    <p>Enabled HIPAA compliance for a healthcare provider by implementing a secure data storage system.</p>
+                <div class="case-study">
+                    <h3>Retail Giant's AI Journey</h3>
+                    <p>Using machine learning, we enabled a global retailer to personalize customer experiences, increasing online sales by 30% in just 6 months.</p>
                 </div>
-                <div class="case-study" onclick="toggleCaseStudy(this)">
-                    <h3>Cloud Migration for Finance</h3>
-                    <p>Cut IT costs by 40% for a financial firm by migrating to a scalable, secure cloud infrastructure.</p>
-                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Our <span>Clients</span> Say</h2>
+            <div class="testimonial">
+                <p>"Tech Solutions Consulting helped us reimagine our entire IT infrastructure. Their innovative approach to digital transformation boosted our productivity and saved us over $1M in annual costs."</p>
+                <strong>John Doe, CEO of FinCorp</strong>
             </div>
         </section>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Tech Solutions Consulting. All Rights Reserved.</p>
         <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact Us</a>
     </footer>
 
-    <script>
-        // Smooth scroll to section
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Toggle sector description
-        function toggleSector(element) {
-            element.classList.toggle('open');
-        }
-
-        // Toggle service description
-        function toggleService(element) {
-            element.classList.toggle('open');
-        }
-
-        // Toggle case study description
-        function toggleCaseStudy(element) {
-            element.classList.toggle('open');
-        }
-
-        // Testimonial slider (simplified)
-        setInterval(() => {
-            const testimonials = document.querySelectorAll('.testimonial');
-            let currentIndex = Array.from(testimonials).findIndex(t => t.classList.contains('active'));
-            testimonials[currentIndex].classList.remove('active');
-            const nextIndex = (currentIndex + 1) % testimonials.length;
-            testimonials[nextIndex].classList.add('active');
-        }, 5000);
-    </script>
 </body>
 
 </html>
