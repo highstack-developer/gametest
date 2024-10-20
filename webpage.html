@@ -203,11 +203,6 @@
         .sector-item p {
             font-size: 1.1em;
             line-height: 1.6;
-            display: none;
-        }
-
-        .sector-item.open p {
-            display: block;
         }
 
         .sector-item:hover {
@@ -265,6 +260,33 @@
             font-size: 1.2em;
         }
 
+        #process {
+            background-color: #f0f0f0;
+        }
+
+        .process-step {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: scale(1.05);
+        }
+
+        .process-step h3 {
+            font-size: 1.8em;
+            color: #00d1b2;
+        }
+
+        .process-step p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
         footer {
             background-color: #001f3f;
             color: #FBC31A;
@@ -314,88 +336,133 @@
     <!-- Header Section -->
     <header>
         <h1>Transforming Businesses with <span class="highlight">Tech Solutions</span></h1>
-        <p>Partner with us to bring cutting-edge technology into your operations and drive unprecedented growth.</p>
-        <button>Get Started</button>
+        <p>Your partner in driving innovation, growth, and efficiency through technology.</p>
+        <button>Contact Us</button>
     </header>
 
-    <!-- Main Content Section -->
-    <div class="container">
-        <!-- Services Section -->
-        <section id="services">
+    <!-- Industry Analysis Section -->
+    <section id="industry-analysis">
+        <div class="container">
+            <h2>Industry <span>Analysis</span></h2>
+            <p>Understanding industry trends and challenges is key to delivering top-tier solutions. At Tech Solutions Consulting, we provide in-depth market research and sector-specific insights to help you stay ahead of the curve. Our industry analysis reports cover:</p>
+            <ul>
+                <li><strong>Financial Services:</strong> From blockchain to AI, the financial sector is rapidly evolving, and we help businesses adapt to these disruptive technologies.</li>
+                <li><strong>Healthcare:</strong> With a growing focus on digital health, telemedicine, and data security, we offer solutions that streamline operations while maintaining compliance.</li>
+                <li><strong>Retail:</strong> The future of retail is omnichannel, and our industry analysis explores customer behavior and digital transformation for maximum impact.</li>
+                <li><strong>Manufacturing:</strong> Discover the latest trends in Industry 4.0, IoT, and automation to enhance your production processes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2>Our <span>Process</span></h2>
+            <div class="service-grid">
+                <div class="process-step">
+                    <h3>1. Discover</h3>
+                    <p>We begin by conducting a comprehensive discovery phase, where we learn about your business, goals, and challenges.</p>
+                </div>
+                <div class="process-step">
+                    <h3>2. Strategize</h3>
+                    <p>Based on insights from the discovery phase, we craft a tailored strategy focused on innovative tech solutions that address your unique needs.</p>
+                </div>
+                <div class="process-step">
+                    <h3>3. Implement</h3>
+                    <p>Our expert team gets to work on implementing the plan, whether it's deploying new infrastructure, custom software, or an AI solution.</p>
+                </div>
+                <div class="process-step">
+                    <h3>4. Optimize</h3>
+                    <p>We continuously monitor, evaluate, and optimize the solutions we've implemented to ensure they deliver the expected outcomes.</p>
+                </div>
+                <div class="process-step">
+                    <h3>5. Support</h3>
+                    <p>Our partnership doesn't end after implementation. We offer ongoing support, training, and maintenance to keep your systems running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
             <h2>Our <span>Services</span></h2>
             <div class="service-grid">
                 <div class="service-item">
-                    <h4>Digital Transformation</h4>
-                    <p>We help businesses modernize their processes by integrating digital technologies at all levels.</p>
+                    <h4>Custom Software Development</h4>
+                    <p>We build software solutions that are tailored to your business needs, whether it's for web, mobile, or enterprise platforms.</p>
                 </div>
                 <div class="service-item">
-                    <h4>Cloud Solutions</h4>
-                    <p>Leverage cloud infrastructure to increase scalability, reduce costs, and ensure 24/7 availability.</p>
+                    <h4>Cloud Migration & Integration</h4>
+                    <p>Seamlessly move your operations to the cloud with our expert services, reducing costs while improving scalability and flexibility.</p>
                 </div>
                 <div class="service-item">
-                    <h4>AI & Machine Learning</h4>
-                    <p>Implement AI-driven solutions to unlock new opportunities in data analytics and automation.</p>
+                    <h4>Artificial Intelligence & Data Analytics</h4>
+                    <p>Unlock the power of AI and data-driven insights to make smarter business decisions and automate routine tasks.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sectors Section -->
-        <section id="sectors">
-            <h2>Key <span>Sectors</span> We Serve</h2>
+    <!-- Sectors Section -->
+    <section id="sectors">
+        <div class="container">
+            <h2>Industries <span>We Serve</span></h2>
             <div class="service-grid">
                 <div class="sector-item">
-                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Finance Logo">
-                    <h4>Finance</h4>
-                    <p>Our solutions empower financial institutions to streamline operations, reduce risk, and enhance customer experiences.</p>
+                    <img src="path/to/your/logo1.png" alt="Financial Sector">
+                    <h4>Financial Services</h4>
+                    <p>Driving digital innovation in banking, insurance, and investment services.</p>
                 </div>
                 <div class="sector-item">
-                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Healthcare Logo">
+                    <img src="path/to/your/logo2.png" alt="Healthcare Sector">
                     <h4>Healthcare</h4>
-                    <p>We offer digital solutions that improve patient care, enhance administrative efficiency, and ensure compliance with regulations.</p>
+                    <p>Streamlining healthcare services with digital solutions for better patient care and operational efficiency.</p>
                 </div>
                 <div class="sector-item">
-                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Retail Logo">
-                    <h4>Retail</h4>
-                    <p>From e-commerce platforms to in-store analytics, we help retailers enhance customer engagement and boost sales.</p>
-                </div>
-                <div class="sector-item">
-                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Manufacturing Logo">
-                    <h4>Manufacturing</h4>
-                    <p>We provide solutions that optimize production processes, improve supply chain visibility, and reduce operational costs.</p>
-                </div>
-                <div class="sector-item">
-                    <img src="/mnt/data/A_set_of_logos_representing_different_business_sec.png" alt="Education Logo">
-                    <h4>Education</h4>
-                    <p>Our tools for digital learning, student management, and data analytics empower educational institutions to thrive in the digital age.</p>
+                    <img src="path/to/your/logo3.png" alt="Retail Sector">
+                    <h4>Retail & eCommerce</h4>
+                    <p>Optimizing the retail experience with omnichannel solutions and digital transformation strategies.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Case Studies Section -->
-        <section id="case-studies">
-            <h2>Recent <span>Case Studies</span></h2>
+    <!-- Case Studies Section -->
+    <section id="case-studies">
+        <div class="container">
+            <h2>Case <span>Studies</span></h2>
             <div class="service-grid">
                 <div class="case-study">
-                    <h3>Financial Institution Transformation</h3>
-                    <p>We helped a leading bank transition to cloud services, resulting in a 20% reduction in IT costs and faster customer service delivery.</p>
+                    <h3>Blockchain for Banking</h3>
+                    <p>We helped a leading bank integrate blockchain into their transaction system, increasing security and reducing transaction times by 40%.</p>
                 </div>
                 <div class="case-study">
-                    <h3>Retail Giant's AI Journey</h3>
-                    <p>Using machine learning, we enabled a global retailer to personalize customer experiences, increasing online sales by 30% in just 6 months.</p>
+                    <h3>Telemedicine Platform</h3>
+                    <p>Our team designed and developed a telemedicine platform that allowed healthcare providers to extend services digitally, improving patient access by 60%.</p>
+                </div>
+                <div class="case-study">
+                    <h3>Retail Digital Transformation</h3>
+                    <p>We assisted a retail chain in creating a robust eCommerce platform with enhanced customer experience, increasing sales by 30% in the first quarter.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2>What Our <span>Clients</span> Say</h2>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Clients <span>Say</span></h2>
             <div class="testimonial">
-                <p>"Tech Solutions Consulting helped us reimagine our entire IT infrastructure. Their innovative approach to digital transformation boosted our productivity and saved us over $1M in annual costs."</p>
-                <strong>John Doe, CEO of FinCorp</strong>
+                <p>"Tech Solutions Consulting delivered a cutting-edge AI solution that transformed the way we handle customer data, reducing errors by 90% and improving response times." <strong>- John Doe, CEO of FinTech Corp.</strong></p>
             </div>
-        </section>
-    </div>
+            <div class="testimonial">
+                <p>"Their deep understanding of cloud integration allowed us to move our entire infrastructure seamlessly, and the ongoing support has been fantastic." <strong>- Sarah Smith, CTO of HealthTech Innovations</strong></p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Tech Solutions Consulting. All Rights Reserved.</p>
         <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact Us</a>
